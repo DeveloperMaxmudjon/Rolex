@@ -52,8 +52,8 @@
                     </button>
 
                     <span>
-                        <button>Sign In</button>
-                        <button>Join now</button>
+                        <button class="signIn">Sign In</button> 
+                        <button class="joinNow">Join now</button>
                     </span>
                 </div>
             </header>
@@ -736,11 +736,57 @@
             </span>
         </div>
     </div>
-    <!-- tt -->
+    <div class="JoinMenu" id="joinMenu">
+        <button class="closeJoinMenu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11Z"/>
+            </svg>
+        </button>
+        <h1>Create an account</h1>
+        <span>
+            <h3>Rolex® REWARDS</h3>
+            <p>Join Rolex Rewards to earn Points for free watches, any way you pay. Get access to exclusive offers, a birthday Reward, and more.</p>
+        </span>
+        <div>
+            <span>
+                <b>*</b>
+                <p>indicates required field</p>
+            </span>
+            <div>
+                <div>
+                    <h3>Personal Information</h3>
+                    <input type="text" id="getFirstName" placeholder="* First name" />
+                    <label id="errorFirstName"></label>
+                </div>
+                <div>
+                    <input type="text" id="getLastName" placeholder="* Last name" />
+                    <label id="errorLastName"></label>
+                </div>
+            </div>
+            <div>
+                <h3>Account Security</h3>
+                <input type="email" id="getEmail" placeholder="* Email address" />
+                <label id="emailErrorJoin"></label>
+            </div>
+            <div>
+                <input type="password" id="getPassword" placeholder="* Password" />
+                <label id="passwordErrorJoin"></label>
+                <p>Create a password 8 to 25 characters long that includes at least 1 uppercase and 1 lowercase letter, 1 number and 1 special character like an exclamation point or asterisk.</p>
+            </div>
+            <div>
+                <input type="password" id="configPassword" placeholder="* Config password" />
+                <label id="configPasswordErrorSignIn"></label>
+            </div>
+            <button id="newUser">Create account</button>
+            
+        </div>
+    </div>
 </body>
 <script src="./assents/JavaScript/dark & light Mode.js"></script>
 <script src="./assents/JavaScript/showMenu.js"></script>
 <script src="./assents/JavaScript/basket.js"></script>
 <script src="./assents/JavaScript/coruselReviews.js"></script>
 <script src="./assents/JavaScript/productCorusel.js"></script>
+<script src="./assents/JavaScript/joinMenu.js"></script>
 </html>

@@ -33,6 +33,7 @@ a { text-decoration: none; color: inherit; }
 
 body {
   background-color: var(--background-color);
+  position: relative;
 }
 
 .container {
@@ -86,7 +87,7 @@ body {
 
       .mobile-header {
         display: flex;
-        gap: 12px;
+        gap: 15px;
 
         button {
           border: none;
@@ -109,7 +110,7 @@ body {
             background-color: var(--accent-color);
             color: var(--white);
             position: absolute;
-            bottom: -5px;
+            bottom: 3px;
             right: -5px;
             border-radius: 50%;
           }
@@ -117,7 +118,7 @@ body {
 
         > span {
           display: flex;
-          gap: 20px;
+          gap: 10px;
 
           button {
             background-color: transparent;
@@ -125,6 +126,25 @@ body {
             font-weight: 600;
             border-radius: 20px;
             padding: 9px 20px;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            transition: 0.3s ease;
+            &.joinNow {
+              background-color: var(--primary-dark);
+              color: var(--white);
+              &:hover {
+                background-color: transparent;
+                color: var(--primary-dark);
+              }
+            }
+            &.signIn {
+              background-color: transparent;
+              color: var(--primary-dark);
+              &:hover {
+                background-color: var(--primary-color);
+                color: var(--white);
+              }
+            }
           }
         }
       }
@@ -460,7 +480,7 @@ body {
           display: flex;
           overflow: hidden;
           max-width: 330px;
-          gap: 90px !important;
+          gap: 90px;
           > div {
             display: flex;
             flex-direction: column;
@@ -764,178 +784,291 @@ body {
     }
   }
 }
-    .showMenu {
-      width: 100%;
-      height: 500px;
-      background-color: var(--background-color);
-      position: absolute;
-      padding: 40px;
-      top: -1500px;
-      transition: .4s;
-      div {
-        display: flex;
-        justify-content: end; 
-        
-        button {
-          border: none;
-          background: transparent;
+.showMenu {
+  width: 100%;
+  height: 500px;
+  background-color: var(--background-color);
+  position: absolute;
+  padding: 40px;
+  top: -1500px;
+  transition: .4s;
+  div {
+    display: flex;
+    justify-content: end; 
+    
+    button {
+      border: none;
+      background: transparent;
 
-          svg {
-            color: var(--primary-color);
-          }
-        }
-      }
-      nav {
-        text-transform: uppercase;
-        display: flex;
-        flex-direction: column;
-        gap: 35px;
-        justify-content: center;
-        align-items: center;
-        a {
-          font-size: 24px;
-          font-weight: 500;
-          color: var(--primary-color);
-        }
-        .homeLink {
-          color: var(--accent-color);
-        }
+      svg {
+        color: var(--primary-color);
       }
     }
+  }
+  nav {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    justify-content: center;
+    align-items: center;
+    a {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--primary-color);
+    }
+    .homeLink {
+      color: var(--accent-color);
+    }
+  }
+}
 
-    .basketMenu {
+.basketMenu {
+  width: 100%;
+  min-height: 500px;
+  background-color: var(--background-color);
+  position: fixed;
+  z-index: 100;
+
+  top: -1500px;
+  padding: 40px;
+
+  > span {
+    display: flex;
+    justify-content: end;
+    button {
+      border: 0;
+      background: transparent;
+      svg {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+    > span {
+      text-align: center;
+      h2 {
+        font-size: 24px;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+    }
+    div {
       width: 100%;
-      min-height: 500px;
-      background-color: var(--background-color);
-      position: fixed;
-      z-index: 100;
-    
-      top: -1500px;
-      padding: 40px;
+      border-radius: 10px;
+      flex-direction: row;
+      gap: 15px;
+      display: none;
 
       > span {
         display: flex;
-        justify-content: end;
-        button {
-          border: 0;
-          background: transparent;
-          svg {
-            color: var(--primary-color);
-          }
+        justify-content: start;
+        align-items: center;
+        height: 100%;
+        padding: 0 20px;
+        width: 150px;
+        border: 1px solid --product-border;
+        background-color: var(--product-bg);
+
+        img {
+          max-height: 130px;
+          max-width: 130px;
+        }
+      }
+      > div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+
+        h3 {
+          font-size: 18px;
+          font-weight: 600;
+          color: var(--primary-color);
+        }
+
+        p {
+          font-size: 14px;
+          color: var(--accent-color);
+          font-weight: 500;
         }
       }
 
-      
-      div {
+      .qty {
         display: flex;
-        flex-direction: column;
-        gap: 24px;
+        
+        flex-direction: row;
+        justify-content: start;
         justify-content: space-between;
-        > span {
-          text-align: center;
-          h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-          }
-        }
-        div {
-          width: 100%;
-          border-radius: 10px;
-          flex-direction: row;
-          gap: 15px;
-          display: none;
-
-          > span {
-            display: flex;
-            justify-content: start;
-            align-items: center;
-            height: 100%;
-            padding: 0 20px;
-            width: 150px;
-            border: 1px solid --product-border;
-            background-color: var(--product-bg);
-
-            img {
-              max-height: 130px;
-              max-width: 130px;
-            }
-          }
-          > div {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 8px;
-
-            h3 {
-              font-size: 18px;
-              font-weight: 600;
-              color: var(--primary-color);
-            }
-
-            p {
-              font-size: 14px;
-              color: var(--accent-color);
-              font-weight: 500;
-            }
-          }
-
-          .qty {
-            display: flex;
-            flex-direction: row;
-            justify-content: start;
-            justify-content: space-between;
-            span {
-              border: none;
-              background: transparent;
-              display: flex;
-              justify-content: start;
-              padding: 0 0;
-              justify-content: space-between;
-              width: 100px;
-              
-              button {
-                border: 1px solid #333333;
-                width: 20px;
-                height: 20px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: transparent;
-                color: var(--primary-color);
-              }
-            }
-            > button {
-              width: auto;
-              border: none;
-              background: transparent;
-              svg {
-                color: var(--accent-color);
-              }
-            }
-          }
-        }
-        .totalPrice {
+        span {
+          border: none;
+          background: transparent;  
           display: flex;
+          justify-content: start;
+          padding: 0 0;
           justify-content: space-between;
-          align-items: center;
-          margin-top: 20px;
-
-          p {
-            font-size: 16px;
-            color: var(--text-secondary);
-            font-weight: 500;
-          }
-
-          h5 {
-            font-size: 18px;
+          width: 100px;
+          
+          button {
+            border: 1px solid #333333;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
             color: var(--primary-color);
-            font-weight: 700;
+          }
+        }
+        > button {
+          width: auto;
+          border: none;
+          background: transparent;
+          svg {
+            color: var(--accent-color);
           }
         }
       }
     }
+    .totalPrice {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+
+      p {
+        font-size: 16px;
+        color: var(--text-secondary);
+        font-weight: 500;
+      }
+
+      h5 {
+        font-size: 18px;
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+.JoinMenu {
+  width: 100%;
+  background-color: var(--background-color);
+  box-shadow: 0 12px 32px 0 rgba(51, 51, 51, 0.15);
+  min-height: auto;
+  padding: 50px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+  gap: 10px;
+  top: -1500px;
+  // top: 0;
+  padding: 40px;
+  transition: .4s;
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+  > span {
+    margin-top: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 450px;
+    }
+  }
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+    justify-content: space-between;
+    max-width: 550px;
+    background-color: var(--product-bg);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 50px 60px;
+    border-radius: 10px;
+    span {
+      display: flex;
+      gap: 10px;
+      b {
+        color: var(--accent-color);
+      }
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      input {
+        padding: 15px 20px;
+        border-radius: 10px;
+        border: 1px solid #333333;
+        font-size: 16px;
+        outline: none;
+        background-color: var(--product-bg);
+        color: var(--primary-color);
+        &::placeholder {
+          color: var(--text-secondary);
+          opacity: 0.5;
+        }
+      }
+      label {
+        font-size: 12px;
+        color: var(--text-secondary);
+        font-weight: 400;
+      }
+      p {
+        width: 100%;
+      }
+    }
+  }
+  #newUser {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border: none;
+    padding: 20px 35px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 20px;
+  }
+  #newUser:hover {
+    transition: .4s;
+    background-color: var(--accent-color);
+    color: var(--primary-dark);
+  }
+  .closeJoinMenu {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 20px;
+    cursor: pointer;
+    right: 20px;
+    svg {
+      color: var(--primary-color);
+    }
+  }
+}
 
 @media (max-width: 992px) {
   .container {
@@ -944,7 +1077,7 @@ body {
       grid-template-rows: 90px auto auto;
 
       header {
-        padding: 20px 30px !important;
+        padding: 20px 30px;
         grid-row: 1 / span 1;
       }
 
@@ -958,6 +1091,8 @@ body {
           transform: none;
           margin: 0 8px;
         }
+
+
       }
 
       .newProducts {
@@ -998,80 +1133,102 @@ body {
         }
       }
     }
-  }
-  .reviews {
-    > div {
-      flex-direction: column;
-      gap: 110px !important; 
-      min-width: 60% !important;
-      gap: 50px !important;
-      .review {
-        min-width: 100% !important; 
-        > div {
-          gap: 50px !important;
-          min-width: 100% !important;
+
+    .reviews {
+      > div {
+        flex-direction: column;
+        gap: 50px;
+        min-width: 60%;
+        .review {
+          min-width: 100%; 
           > div {
-            min-width: 100% !important;
+            gap: 50px;
+            min-width: 100%;
+            > div {
+              min-width: 100%;
+            }
+          }
+        }
+        .img  {
+          min-width: 350px;
+          height: 350px;  
+          .bg-div {
+            width: 300px; 
+            height: 300px;
+
+            img {
+              bottom: -50px;
+              left: -50px;
+            }
           }
         }
       }
-      .img  {
-        min-width: 350px !important;
-        height: 350px !important;  
-        .bg-div {
-          width: 300px !important; 
-          height: 300px !important;
+    }
+
+    .arrivasMian {
+      padding: 60px 30px;
+
+      .arrivas {
+        gap: 20px;
+        > div {
+          width: 250px;
 
           img {
-            bottom: -50px !important;
-            left: -50px !important;
+            width: 100px;
           }
         }
       }
     }
-  }
 
-  .arrivasMian {
-    padding: 60px 30px;
+    .sub {
+      flex-direction: column;
+      gap: 30px;
 
-    .arrivas {
-      gap: 20px;
       > div {
-        width: 250px !important;
+        text-align: center;
+        width: 100%;
 
-        img {
-          width: 100px !important;
+        h2, p {
+          width: 100%;
+        }
+      }
+      span {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        input {
+          width: 80%;
+        }
+        button {
+          width: 80%;
         }
       }
     }
-  }
-
-  .sub {
-    flex-direction: column;
-    gap: 30px;
-
-    > div {
-      text-align: center;
-      width: 100% !important;
-
-      h2, p {
-        width: 100% !important;
-      }
-    }
-    span {
-      width: 100% !important;
-      flex-direction: column;
-      gap: 20px;
-      input {
-        width: 80% !important;
-      }
-      button {
-        width: 80%;
-      }
+    footer {
+      padding: 50px 80px;
     }
   }
-  footer {
-    padding: 50px 80px !important;
+}
+
+@media (max-width: 800px) {
+  .container {
+    .headerContainer {
+      header {
+        nav {
+          gap: 20px;
+        }
+
+        .mobile-header {
+          gap: 10px;
+          #navGroup {
+            display: inline-block;
+          }
+          .joinNow {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 @media (max-width: 660px) {
@@ -1085,8 +1242,12 @@ body {
           display: none;
         }
         .mobile-header {
+          gap: 7px;
           #navGroup {
             display: inline-block;
+          }
+          .joinNow {
+            display: none;
           }
         }
       }
@@ -1174,42 +1335,41 @@ body {
         }
       }
     }
-  }
 
-  .arrivasMian {
-    padding: 60px 20px;
-    .buttons {
-      display: flex !important;
-    }
-    .arrivas {
-      max-width: 60%;
-      gap: 110px !important;
-      overflow: hidden;
+    .arrivasMian {
+      padding: 60px 20px;
+      .buttons {
+        display: flex;
+      }
+      .arrivas {
+        max-width: 60%;
+        gap: 110px;
+        overflow: hidden;
+        flex-wrap: nowrap;
 
-      flex-wrap: nowrap !important;
+        > div {
+          min-width: 100%;
 
-      > div {
-        min-width: 100% !important;
-
-        img {
-          width: 80px !important;
+          img {
+            width: 80px;
+          }
         }
       }
     }
-  }
 
-  footer {
-    padding: 30px 40px !important;
-    > div {
-      span {
-        width: 150px;
-        gap: 10px !important;
-        
+    footer {
+      padding: 30px 40px;
+      > div {
+        span {
+          width: 150px;
+          gap: 10px;
+          
+        }
       }
-    }
 
-    > span {
-      padding: 20px;
+      > span {
+        padding: 20px;
+      }
     }
   }
 }
@@ -1230,64 +1390,63 @@ body {
         }
       }
     }
-  }
 
-  .productsMain {
-    padding: 60px 10px;
-    
-    .products {
-      gap: 15px;
+    .productsMain {
+      padding: 60px 10px;
       
-      > div {
-        padding: 15px 10px !important;
-
+      .products {
+        gap: 15px;
+        
         > div {
-          img {
-            width:50px !important;
-          }
-          h3 {
-            font-size: 15px !important;
-            width: 100px !important;
-          }
-          span {
-            font-size: 14px !important;
-            font-weight: 600;
-          }
-        }
-      }
-    }
-  }
+          padding: 15px 10px;
 
-  .reviews {
-    > div {
-      .review {
-        > div {
-          gap: 50px !important;
           > div {
-            min-width: 300px !important;
-          }
-        }
-      }
-      .img {
-        min-width: 300px !important;
-        height: 300px !important;  
-        .bg-div {
-          width: 250px !important; 
-          height: 250px !important;
-
-          img {
-            bottom: -30px !important;
-            left: -30px !important;
+            img {
+              width: 50px;
+            }
+            h3 {
+              font-size: 15px;
+              width: 100px;
+            }
+            span {
+              font-size: 14px;
+              font-weight: 600;
+            }
           }
         }
       }
     }
-  }
 
-  .arrivasMian {
+    .reviews {
+      > div {
+        .review {
+          > div {
+            gap: 50px;
+            > div {
+              min-width: 300px;
+            }
+          }
+        }
+        .img {
+          min-width: 300px;
+          height: 300px;  
+          .bg-div {
+            width: 250px; 
+            height: 250px;
 
-    .arrivas {
-      max-width: 90% !important;
+            img {
+              bottom: -30px;
+              left: -30px;
+            }
+          }
+        }
+      }
+    }
+
+    .arrivasMian {
+      .arrivas {
+        max-width: 90%;
+      }
     }
   }
 }

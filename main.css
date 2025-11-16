@@ -40,6 +40,7 @@ a {
 
 body {
   background-color: var(--background-color);
+  position: relative;
 }
 
 .container {
@@ -84,7 +85,7 @@ body {
 }
 .container .headerContainer header .mobile-header {
   display: flex;
-  gap: 12px;
+  gap: 15px;
 }
 .container .headerContainer header .mobile-header button {
   border: none;
@@ -105,13 +106,13 @@ body {
   background-color: var(--accent-color);
   color: var(--white);
   position: absolute;
-  bottom: -5px;
+  bottom: 3px;
   right: -5px;
   border-radius: 50%;
 }
 .container .headerContainer header .mobile-header > span {
   display: flex;
-  gap: 20px;
+  gap: 10px;
 }
 .container .headerContainer header .mobile-header > span button {
   background-color: transparent;
@@ -119,7 +120,25 @@ body {
   font-weight: 600;
   border-radius: 20px;
   padding: 9px 20px;
-  border: 1px solid --;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  transition: 0.3s ease;
+}
+.container .headerContainer header .mobile-header > span button.joinNow {
+  background-color: var(--primary-dark);
+  color: var(--white);
+}
+.container .headerContainer header .mobile-header > span button.joinNow:hover {
+  background-color: transparent;
+  color: var(--primary-dark);
+}
+.container .headerContainer header .mobile-header > span button.signIn {
+  background-color: transparent;
+  color: var(--primary-dark);
+}
+.container .headerContainer header .mobile-header > span button.signIn:hover {
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 .container .headerContainer .social-media {
   grid-column: 1/2;
@@ -418,7 +437,7 @@ body {
   display: flex;
   overflow: hidden;
   max-width: 330px;
-  gap: 90px !important;
+  gap: 90px;
 }
 .container .reviews > div .review > div > div {
   display: flex;
@@ -850,13 +869,127 @@ body {
   font-weight: 700;
 }
 
+.JoinMenu {
+  width: 100%;
+  background-color: var(--background-color);
+  box-shadow: 0 12px 32px 0 rgba(51, 51, 51, 0.15);
+  min-height: auto;
+  padding: 50px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+  gap: 10px;
+  top: -1500px;
+  padding: 40px;
+  transition: 0.4s;
+}
+.JoinMenu h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.JoinMenu > span {
+  margin-top: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.JoinMenu > span h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+.JoinMenu > span p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  max-width: 450px;
+}
+.JoinMenu > div {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+  justify-content: space-between;
+  max-width: 550px;
+  background-color: var(--product-bg);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 50px 60px;
+  border-radius: 10px;
+}
+.JoinMenu > div span {
+  display: flex;
+  gap: 10px;
+}
+.JoinMenu > div span b {
+  color: var(--accent-color);
+}
+.JoinMenu > div div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.JoinMenu > div div input {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid #333333;
+  font-size: 16px;
+  outline: none;
+  background-color: var(--product-bg);
+  color: var(--primary-color);
+}
+.JoinMenu > div div input::-moz-placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+.JoinMenu > div div input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.5;
+}
+.JoinMenu > div div label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+.JoinMenu > div div p {
+  width: 100%;
+}
+.JoinMenu #newUser {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  border: none;
+  padding: 20px 35px;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 20px;
+}
+.JoinMenu #newUser:hover {
+  transition: 0.4s;
+  background-color: var(--accent-color);
+  color: var(--primary-dark);
+}
+.JoinMenu .closeJoinMenu {
+  border: none;
+  background: transparent;
+  position: absolute;
+  top: 20px;
+  cursor: pointer;
+  right: 20px;
+}
+.JoinMenu .closeJoinMenu svg {
+  color: var(--primary-color);
+}
+
 @media (max-width: 992px) {
   .container .headerContainer {
     grid-template-columns: 1fr;
     grid-template-rows: 90px auto auto;
   }
   .container .headerContainer header {
-    padding: 20px 30px !important;
+    padding: 20px 30px;
     grid-row: 1/span 1;
   }
   .container .headerContainer .social-media {
@@ -905,70 +1038,83 @@ body {
   .container .productsMain .products > div {
     padding: 20px 30px;
   }
-  .reviews > div {
+  .container .reviews > div {
     flex-direction: column;
-    gap: 110px !important;
-    min-width: 60% !important;
-    gap: 50px !important;
+    gap: 50px;
+    min-width: 60%;
   }
-  .reviews > div .review {
-    min-width: 100% !important;
+  .container .reviews > div .review {
+    min-width: 100%;
   }
-  .reviews > div .review > div {
-    gap: 50px !important;
-    min-width: 100% !important;
+  .container .reviews > div .review > div {
+    gap: 50px;
+    min-width: 100%;
   }
-  .reviews > div .review > div > div {
-    min-width: 100% !important;
+  .container .reviews > div .review > div > div {
+    min-width: 100%;
   }
-  .reviews > div .img {
-    min-width: 350px !important;
-    height: 350px !important;
+  .container .reviews > div .img {
+    min-width: 350px;
+    height: 350px;
   }
-  .reviews > div .img .bg-div {
-    width: 300px !important;
-    height: 300px !important;
+  .container .reviews > div .img .bg-div {
+    width: 300px;
+    height: 300px;
   }
-  .reviews > div .img .bg-div img {
-    bottom: -50px !important;
-    left: -50px !important;
+  .container .reviews > div .img .bg-div img {
+    bottom: -50px;
+    left: -50px;
   }
-  .arrivasMian {
+  .container .arrivasMian {
     padding: 60px 30px;
   }
-  .arrivasMian .arrivas {
+  .container .arrivasMian .arrivas {
     gap: 20px;
   }
-  .arrivasMian .arrivas > div {
-    width: 250px !important;
+  .container .arrivasMian .arrivas > div {
+    width: 250px;
   }
-  .arrivasMian .arrivas > div img {
-    width: 100px !important;
+  .container .arrivasMian .arrivas > div img {
+    width: 100px;
   }
-  .sub {
+  .container .sub {
     flex-direction: column;
     gap: 30px;
   }
-  .sub > div {
+  .container .sub > div {
     text-align: center;
-    width: 100% !important;
+    width: 100%;
   }
-  .sub > div h2, .sub > div p {
-    width: 100% !important;
+  .container .sub > div h2, .container .sub > div p {
+    width: 100%;
   }
-  .sub span {
-    width: 100% !important;
+  .container .sub span {
+    width: 100%;
     flex-direction: column;
     gap: 20px;
   }
-  .sub span input {
-    width: 80% !important;
-  }
-  .sub span button {
+  .container .sub span input {
     width: 80%;
   }
-  footer {
-    padding: 50px 80px !important;
+  .container .sub span button {
+    width: 80%;
+  }
+  .container footer {
+    padding: 50px 80px;
+  }
+}
+@media (max-width: 800px) {
+  .container .headerContainer header nav {
+    gap: 20px;
+  }
+  .container .headerContainer header .mobile-header {
+    gap: 10px;
+  }
+  .container .headerContainer header .mobile-header #navGroup {
+    display: inline-block;
+  }
+  .container .headerContainer header .mobile-header .joinNow {
+    display: none;
   }
 }
 @media (max-width: 660px) {
@@ -978,8 +1124,14 @@ body {
   .container .headerContainer header nav {
     display: none;
   }
+  .container .headerContainer header .mobile-header {
+    gap: 7px;
+  }
   .container .headerContainer header .mobile-header #navGroup {
     display: inline-block;
+  }
+  .container .headerContainer header .mobile-header .joinNow {
+    display: none;
   }
   .container .headerContainer .social-media {
     grid-column: 1/span 1;
@@ -1044,32 +1196,32 @@ body {
     bottom: -50px;
     left: -50px;
   }
-  .arrivasMian {
+  .container .arrivasMian {
     padding: 60px 20px;
   }
-  .arrivasMian .buttons {
-    display: flex !important;
+  .container .arrivasMian .buttons {
+    display: flex;
   }
-  .arrivasMian .arrivas {
+  .container .arrivasMian .arrivas {
     max-width: 60%;
-    gap: 110px !important;
+    gap: 110px;
     overflow: hidden;
-    flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
   }
-  .arrivasMian .arrivas > div {
-    min-width: 100% !important;
+  .container .arrivasMian .arrivas > div {
+    min-width: 100%;
   }
-  .arrivasMian .arrivas > div img {
-    width: 80px !important;
+  .container .arrivasMian .arrivas > div img {
+    width: 80px;
   }
-  footer {
-    padding: 30px 40px !important;
+  .container footer {
+    padding: 30px 40px;
   }
-  footer > div span {
+  .container footer > div span {
     width: 150px;
-    gap: 10px !important;
+    gap: 10px;
   }
-  footer > span {
+  .container footer > span {
     padding: 20px;
   }
 }
@@ -1085,46 +1237,46 @@ body {
     width: 50px;
     height: auto;
   }
-  .productsMain {
+  .basketMenu .productsMain {
     padding: 60px 10px;
   }
-  .productsMain .products {
+  .basketMenu .productsMain .products {
     gap: 15px;
   }
-  .productsMain .products > div {
-    padding: 15px 10px !important;
+  .basketMenu .productsMain .products > div {
+    padding: 15px 10px;
   }
-  .productsMain .products > div > div img {
-    width: 50px !important;
+  .basketMenu .productsMain .products > div > div img {
+    width: 50px;
   }
-  .productsMain .products > div > div h3 {
-    font-size: 15px !important;
-    width: 100px !important;
+  .basketMenu .productsMain .products > div > div h3 {
+    font-size: 15px;
+    width: 100px;
   }
-  .productsMain .products > div > div span {
-    font-size: 14px !important;
+  .basketMenu .productsMain .products > div > div span {
+    font-size: 14px;
     font-weight: 600;
   }
-  .reviews > div .review > div {
-    gap: 50px !important;
+  .basketMenu .reviews > div .review > div {
+    gap: 50px;
   }
-  .reviews > div .review > div > div {
-    min-width: 300px !important;
+  .basketMenu .reviews > div .review > div > div {
+    min-width: 300px;
   }
-  .reviews > div .img {
-    min-width: 300px !important;
-    height: 300px !important;
+  .basketMenu .reviews > div .img {
+    min-width: 300px;
+    height: 300px;
   }
-  .reviews > div .img .bg-div {
-    width: 250px !important;
-    height: 250px !important;
+  .basketMenu .reviews > div .img .bg-div {
+    width: 250px;
+    height: 250px;
   }
-  .reviews > div .img .bg-div img {
-    bottom: -30px !important;
-    left: -30px !important;
+  .basketMenu .reviews > div .img .bg-div img {
+    bottom: -30px;
+    left: -30px;
   }
-  .arrivasMian .arrivas {
-    max-width: 90% !important;
+  .basketMenu .arrivasMian .arrivas {
+    max-width: 90%;
   }
 }
 .showMenuFlex {
