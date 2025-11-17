@@ -134,33 +134,57 @@ body {
 
         > span {
           display: flex;
+          align-items: center;
           gap: 10px;
 
           button {
-            background-color: transparent;
+            background-color: var(--white);
             font-size: 14px;
             font-weight: 600;
+            height: 35px;
+            border: 1px solid var(--primary-dark);
             border-radius: 20px;
             padding: 9px 20px;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
             transition: 0.3s ease;
+
             &.joinNow {
               background-color: var(--primary-dark);
               color: var(--white);
+
               &:hover {
-                background-color: transparent;
+                background-color: var(--white);
                 color: var(--primary-dark);
               }
             }
+
             &.signIn {
-              background-color: transparent;
+              background-color: var(--white);
               color: var(--primary-dark);
+
               &:hover {
-                background-color: var(--primary-color);
+                background-color: var(--primary-dark);
                 color: var(--white);
               }
             }
+          }
+        }
+        .userProf {
+          display: none;
+          gap: 10px;
+          align-items: center;
+          div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 10px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 50%;
+          }
+          span {
+            font-size: 18px;
+            font-weight: 700;
+            gap: 5px;
           }
         }
       }
@@ -843,7 +867,7 @@ body {
   width: 100%;
   min-height: 500px;
   background-color: var(--background-color);
-  position: fixed;
+position: absolute;
   z-index: 100;
 
   top: -1500px;
@@ -999,6 +1023,7 @@ body {
     margin-top: 40px;
     text-align: center;
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 10px;
     h3 {
@@ -1011,6 +1036,22 @@ body {
       color: var(--text-secondary);
       font-weight: 400;
       max-width: 450px;
+      margin: 0 auto;
+    }
+    button {
+      background-color: transparent;
+      color: #1F1F1F;
+      width: 250px;
+      border: 1px solid #1F1F1F;
+      padding: 15px 25px;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 20px;
+      &:hover {
+        transition: .4s;
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
     }
   }
   > div {
@@ -1027,6 +1068,7 @@ body {
     span {
       display: flex;
       gap: 10px;
+      color: var(--primary-color);
       b {
         color: var(--accent-color);
       }
@@ -1071,6 +1113,10 @@ body {
           }
         }
       }
+
+      h3 {
+        color: var(--primary-color);
+      }
       input {
         width: 100%;
         padding: 15px 20px;
@@ -1093,6 +1139,7 @@ body {
       }
       p {
         width: 100%;
+        color: var(--primary-color);
       }
     }
   }
@@ -1117,6 +1164,139 @@ body {
     top: 20px;
     cursor: pointer;
     right: 20px;
+    svg {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.SignInMenu {
+  width: 100%;
+  background-color: var(--background-color);
+  box-shadow: 0 12px 32px 0 rgba(51, 51, 51, 0.15);
+  min-height: auto;
+  padding: 50px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+  gap: 10px;
+  top: -1500px;
+  padding: 40px;
+  transition: .4s;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  > span {
+    margin-top: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+    p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      max-width: 450px;
+    }
+    button {
+      background-color: transparent;
+      color: var(--primary-color);
+      width: 250px;
+      border: 1px solid var(--primary-color);
+      padding: 15px 25px;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 20px;
+      &:hover {
+        transition: .4s;
+        background-color: var(--primary-dark);
+        color: var(--white);
+      }
+    }
+  }
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: space-between;
+    max-width: 450px;
+    width: 100%;
+    background-color: var(--product-bg);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 40px 40px;
+    border-radius: 10px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      input {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 10px;
+        border: 1px solid #333333;
+        font-size: 16px;
+        outline: none;
+        background-color: var(--product-bg);
+        color: var(--primary-color);
+
+        &::placeholder {
+          color: var(--text-secondary);
+          opacity: 0.5;
+        }
+      }
+      h3 {
+        color: var(--primary-color);
+      }
+
+      label {
+        font-size: 14px;
+        color: red;
+        min-height: 16px;
+      }
+    }
+
+    #loginUser {
+      background-color: var(--primary-dark);
+      color: var(--white);
+      border: none;
+      padding: 15px 30px;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 20px;
+
+      &:hover {
+        transition: .3s;
+        background-color: var(--accent-color);
+        color: var(--primary-dark);
+      }
+    }
+  }
+
+  .closeSignInMenu {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: 20px;
+    cursor: pointer;
+    right: 20px;
+
     svg {
       color: var(--primary-color);
     }

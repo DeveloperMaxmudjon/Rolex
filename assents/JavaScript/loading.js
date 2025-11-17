@@ -1,15 +1,15 @@
-document.getElementsByClassName("container")[0].style.opacity = "0";
+document.getElementsByClassName("container")[0].style.opacity = "1";
 
-let time = Math.random() * (3000 - 1000) + 2000;
+// let time = Math.random() * (3000 - 1000) + 2000;
 
-setTimeout(function() {
+// setTimeout(function() {
 
-  document.getElementsByClassName("container")[0].style.opacity = "1";
+//   document.getElementsByClassName("container")[0].style.opacity = "1";
 
-  document.getElementById("preloader").style.opacity = "0";
+//   document.getElementById("preloader").style.opacity = "0";
 
-  setTimeout(() => {
-    document.getElementById("preloader").style.display = "none";
-  }, 600); 
+//   setTimeout(() => {
+//     document.getElementById("preloader").style.display = "none";
+//   }, 600); 
 
-}, time);
+// }, time);

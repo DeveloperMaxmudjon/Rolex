@@ -1,11 +1,26 @@
-
-document.querySelector(".joinNow").onclick = function () {
-    document.getElementById("joinMenu").style.top = "90px";
-};
-
-document.querySelector(".closeJoinMenu").onclick = function () {
+document.getElementById("signIn").onclick = function () {
+    document.getElementById("signInMenu").style.top = "90px";
     document.getElementById("joinMenu").style.top = "-1500px";
 };
+
+document.getElementById("closeSignInMenu").onclick = function () {
+    document.getElementById("signInMenu").style.top = "-1500px";
+};
+
+document.getElementById("joinNow").onclick = function () {
+    document.getElementById("joinMenu").style.top = "90px";
+    document.getElementById("signInMenu").style.top = "-1500px";
+};
+
+document.getElementById("closeJoinMenu").onclick = function () {
+    document.getElementById("joinMenu").style.top = "-1500px";
+};
+
+document.getElementById("joinMenu2").onclick = function () {
+    document.getElementById("joinMenu").style.top = "90px";
+    document.getElementById("signInMenu").style.top = "-1500px";
+};
+
 
 
 function generatePassword() {
@@ -122,7 +137,52 @@ document.getElementById("newUser").onclick = function() {
         pass = password;
         first = firstName;
         last = lastName;
+
+        document.getElementById("first").textContent = firstName[0].toUpperCase();
+        document.getElementById("last").textContent = lastName[0].toUpperCase();
+        document.getElementById("userProf").style.display = "flex"
+        document.getElementById("joinMenu").style.top = "-1500px";
+        document.getElementById("joinBtn").style.display = "none";
         console.log(regEmail, pass, first, last)
     }
+};
 
+document.getElementById("loginUser").onclick = function () {
+    const loginEmail = document.getElementById("loginEmail").value;
+    const loginPassword = document.getElementById("loginPassword").value;
+
+    const loginEmailError = document.getElementById("loginEmailError");
+    const loginPasswordError = document.getElementById("loginPasswordError");
+
+    loginEmailError.innerHTML = "";
+    loginPasswordError.innerHTML = "";
+
+    if (loginEmail.length === 0) {
+        loginEmailError.innerHTML = "Enter your email";
+    } else if (!loginEmail.includes("@") || !loginEmail.includes(".")) {
+        loginEmailError.innerHTML = "Enter a valid email";
+    }
+
+    if (loginPassword.length === 0) {
+        loginPasswordError.innerHTML = "Enter your password";
+    }
+
+    if (loginEmailError.innerHTML !== "" || loginPasswordError.innerHTML !== "") {
+        return;
+    }
+
+    if (loginEmail !== regEmail || loginPassword !== pass) {
+        loginPasswordError.innerHTML = "Email or password is incorrect";
+        return;
+    }
+
+    document.getElementById("first").textContent = first[0].toUpperCase();
+    document.getElementById("last").textContent = last[0].toUpperCase();
+
+    document.getElementById("userProf").style.display = "flex";
+    document.getElementById("joinBtn").style.display = "none";
+
+    document.getElementById("signInMenu").style.top = "-1500px";
+
+    console.log("User logged in:", regEmail, first, last);
 };
