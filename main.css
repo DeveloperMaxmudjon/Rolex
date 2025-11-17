@@ -5,6 +5,19 @@
   box-sizing: border-box;
 }
 
+#preloader {
+  width: 250px;
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  margin: 0 auto;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
 :root {
   --accent-color: #FFB568;
   --primary-dark: #2B2B2B;
@@ -44,6 +57,8 @@ body {
 }
 
 .container {
+  opacity: 0;
+  transition: opacity 0.6s ease;
   background-color: var(--background-color);
 }
 .container .headerContainer {
@@ -927,12 +942,42 @@ body {
 .JoinMenu > div span b {
   color: var(--accent-color);
 }
-.JoinMenu > div div {
+.JoinMenu > div > div {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
-.JoinMenu > div div input {
+.JoinMenu > div > div > span {
+  display: flex;
+  justify-content: space-between;
+}
+.JoinMenu > div > div > span > div {
+  border-radius: 10px;
+  border: 1px solid #333333;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  width: 90%;
+}
+.JoinMenu > div > div > span > div input {
+  padding: 15px 5px;
+  border: none;
+}
+.JoinMenu > div > div > span > div button img {
+  width: 26px;
+}
+.JoinMenu > div > div > span button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+.JoinMenu > div > div > span button img {
+  width: 32px;
+}
+.JoinMenu > div > div input {
+  width: 100%;
   padding: 15px 20px;
   border-radius: 10px;
   border: 1px solid #333333;
@@ -941,20 +986,21 @@ body {
   background-color: var(--product-bg);
   color: var(--primary-color);
 }
-.JoinMenu > div div input::-moz-placeholder {
+.JoinMenu > div > div input::-moz-placeholder {
   color: var(--text-secondary);
   opacity: 0.5;
 }
-.JoinMenu > div div input::placeholder {
+.JoinMenu > div > div input::placeholder {
   color: var(--text-secondary);
   opacity: 0.5;
 }
-.JoinMenu > div div label {
-  font-size: 12px;
+.JoinMenu > div > div label {
+  font-size: 14px;
   color: var(--text-secondary);
   font-weight: 400;
+  color: red;
 }
-.JoinMenu > div div p {
+.JoinMenu > div > div p {
   width: 100%;
 }
 .JoinMenu #newUser {
@@ -1225,58 +1271,16 @@ body {
     padding: 20px;
   }
 }
-@media (max-width: 420px) {
-  .basketMenu > div > div {
-    height: 100px;
-  }
-  .basketMenu > div > div span {
-    max-height: 100px;
-    max-width: 90px;
-  }
-  .basketMenu > div > div span img {
-    width: 50px;
+@media (max-width: 450px) {
+  .container .featured .featuredProduct > div button {
+    opacity: 1;
     height: auto;
+    padding: 20px 32px;
   }
-  .basketMenu .productsMain {
-    padding: 60px 10px;
-  }
-  .basketMenu .productsMain .products {
-    gap: 15px;
-  }
-  .basketMenu .productsMain .products > div {
-    padding: 15px 10px;
-  }
-  .basketMenu .productsMain .products > div > div img {
-    width: 50px;
-  }
-  .basketMenu .productsMain .products > div > div h3 {
-    font-size: 15px;
-    width: 100px;
-  }
-  .basketMenu .productsMain .products > div > div span {
-    font-size: 14px;
-    font-weight: 600;
-  }
-  .basketMenu .reviews > div .review > div {
-    gap: 50px;
-  }
-  .basketMenu .reviews > div .review > div > div {
-    min-width: 300px;
-  }
-  .basketMenu .reviews > div .img {
-    min-width: 300px;
-    height: 300px;
-  }
-  .basketMenu .reviews > div .img .bg-div {
-    width: 250px;
-    height: 250px;
-  }
-  .basketMenu .reviews > div .img .bg-div img {
-    bottom: -30px;
-    left: -30px;
-  }
-  .basketMenu .arrivasMian .arrivas {
-    max-width: 90%;
+  .container .arrivasMian .arrivas > div button {
+    opacity: 1;
+    height: auto;
+    padding: 20px 32px;
   }
 }
 .showMenuFlex {

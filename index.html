@@ -11,6 +11,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
 </head>
 <body>
+    <div id="preloader">
+        <lottie-player 
+            src="./assents/Icons/Cosmos.json"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay>
+        </lottie-player>
+    </div>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <div class="container">
         <div class="headerContainer">
             
@@ -754,7 +765,8 @@
                 <p>indicates required field</p>
             </span>
             <div>
-                <div>
+                <div style="gap: 15px; display: flex;
+                flex-direction: column;">
                     <h3>Personal Information</h3>
                     <input type="text" id="getFirstName" placeholder="* First name" />
                     <label id="errorFirstName"></label>
@@ -770,7 +782,19 @@
                 <label id="emailErrorJoin"></label>
             </div>
             <div>
-                <input type="password" id="getPassword" placeholder="* Password" />
+                <span>
+                    <div>
+                        <input type="text" id="getPassword" placeholder="* Password"/>
+
+                        <button id="showPassword">
+                            <img id="hide" src="assents/Icons/hide (1).png" alt="">
+                            <img id="show" src="assents/Icons/show.png" alt="">
+                        </button>
+                    </div>
+                    <button title="Generate Password" id="generatePass">
+                        <img src="assents/Icons/secure-password.png" alt="">
+                    </button>
+                </span>
                 <label id="passwordErrorJoin"></label>
                 <p>Create a password 8 to 25 characters long that includes at least 1 uppercase and 1 lowercase letter, 1 number and 1 special character like an exclamation point or asterisk.</p>
             </div>
@@ -789,4 +813,5 @@
 <script src="./assents/JavaScript/coruselReviews.js"></script>
 <script src="./assents/JavaScript/productCorusel.js"></script>
 <script src="./assents/JavaScript/joinMenu.js"></script>
+<script src="./assents/JavaScript/loading.js"></script>
 </html>
