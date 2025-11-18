@@ -6,6 +6,15 @@ document.getElementById("removeBasketMenu").onclick = function() {
     document.getElementById("basketMenu").classList.remove("showMenuFlex")
 }
 
+function canAdd(amount) {
+    if (userBalance === 0) return true;
+    if (totlePrice + amount > userBalance) {
+        alert("Your balance limit is $" + userBalance);
+        return false;
+    }
+    return true;
+}
+
 let ProductItems = 0
 let productQty = document.getElementById("itemQty")
 productQty.textContent = ``;
@@ -25,11 +34,13 @@ function productNumeber(productQtyDisplayId, addButtonId, removeButtonId, produc
     qtyDisplay.textContent = qty;
 
     document.getElementById(addButtonId).onclick = function() {
+        if (!canAdd(productPrice)) return;
         qty++;
         qtyDisplay.textContent = qty;
         totlePrice += productPrice;
         totlePriceDisplay.textContent = `$${totlePrice}`;
-    }
+    };
+
     document.getElementById(removeButtonId).onclick = function() {
         if (qty > 1) {
             qty--;
@@ -37,7 +48,7 @@ function productNumeber(productQtyDisplayId, addButtonId, removeButtonId, produc
             totlePrice -= productPrice;
             totlePriceDisplay.textContent = `$${totlePrice}`;
         }
-    }
+    };
 }
 
 function productInCart(addButtonId, productStatusInBascet, productImgId, productNameId, productPriceId,
@@ -45,38 +56,41 @@ function productInCart(addButtonId, productStatusInBascet, productImgId, product
     
     document.getElementById(addButtonId).onclick = function() {
         if (productStatusInBascet === false) {
+            let currentQty = parseInt(document.getElementById(productQtyDisplayId).textContent);
+            let addAmount = productPrice * currentQty;
+
+            if (!canAdd(addAmount)) return;
+
             basketNumber++;
             ProductItems++;
             productQty.textContent = `${ProductItems} Items`;
             number.textContent = basketNumber;
-            productStatusInBascet = true; 
+            productStatusInBascet = true;
 
-            let currentQty = parseInt(document.getElementById(productQtyDisplayId).textContent);
-            
-            totlePrice += productPrice * currentQty;
+            totlePrice += addAmount;
             totlePriceDisplay.textContent = `$${totlePrice}`;
 
-            document.getElementById(productImgId).innerHTML = `<img src="${productImg}" alt="Product">`
-            document.getElementById(productNameId).textContent = productName
-            document.getElementById(productPriceId).textContent = `$${productPrice * currentQty}`
+            document.getElementById(productImgId).innerHTML = `<img src="${productImg}" alt="Product">`;
+            document.getElementById(productNameId).textContent = productName;
+            document.getElementById(productPriceId).textContent = `$${productPrice * currentQty}`;
             
-            document.getElementById(cartProductId).style.display = "flex"
+            document.getElementById(cartProductId).style.display = "flex";
 
             document.getElementById(trashProductId).onclick = function() {
+                let currentQty = parseInt(document.getElementById(productQtyDisplayId).textContent);
+
                 basketNumber--;
                 ProductItems--;
                 productQty.textContent = `${ProductItems} Items`;
                 number.textContent = basketNumber;
                 document.getElementById(cartProductId).style.display = "none";
-                productStatusInBascet = false; 
+                productStatusInBascet = false;
 
-                let currentQty = parseInt(document.getElementById(productQtyDisplayId).textContent);
-                
                 totlePrice -= productPrice * currentQty;
                 totlePriceDisplay.textContent = `$${totlePrice}`;
-            }
+            };
         }
-    }
+    };
 }
 
 productNumeber("product1QuantityDisplay", "product1AddNumber", "product1RemoveNumber", 1245);

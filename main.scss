@@ -172,7 +172,7 @@ body {
           display: none;
           gap: 10px;
           align-items: center;
-          div {
+          > div {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -181,10 +181,17 @@ body {
             color: var(--white);
             border-radius: 50%;
           }
-          span {
+          > span {
             font-size: 18px;
             font-weight: 700;
             gap: 5px;
+            > div {
+              #balance {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--text-secondary);
+              }
+            }
           }
         }
       }
@@ -1475,7 +1482,7 @@ position: absolute;
           display: none;
         }
         .mobile-header {
-          gap: 7px;
+          gap: 15px;
           #navGroup {
             display: inline-block;
           }
@@ -1603,6 +1610,48 @@ position: absolute;
       > span {
         padding: 20px;
       }
+    }
+  }
+
+  .JoinMenu {
+    padding: 20px;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    > span {
+      h3 {
+        font-size: 19px;
+      }
+
+      button {
+        padding: 10px 20px;
+      }
+    }
+    > div {
+      padding: 20px;
+    }
+  }
+
+  .SignInMenu {
+    padding: 20px;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    > span {
+      h3 {
+        font-size: 19px;
+      }
+
+      button {
+        padding: 10px 20px;
+      }
+    }
+    > div {
+      padding: 20px;
     }
   }
 }

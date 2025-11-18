@@ -88,12 +88,13 @@ let pass = "";
 let first = "";
 let last = "";
 
+const balanceList = [2000, 2500, 3000, 3500];
+let userBalance = 0;
 
 document.getElementById("newUser").onclick = function() {
-
     const firstName = document.getElementById("getFirstName").value;
     const lastName  = document.getElementById("getLastName").value;
-    const email    = document.getElementById("getEmail").value;
+    const email     = document.getElementById("getEmail").value;
     const password  = document.getElementById("getPassword").value;
     const confirm   = document.getElementById("configPassword").value;
 
@@ -109,27 +110,25 @@ document.getElementById("newUser").onclick = function() {
     errPass.innerHTML = "";
     errConf.innerHTML = "";
 
-
-
-
-    if (firstName.length === 0) {errFirst.innerHTML = "Enter your first name"};
-    if (lastName.length === 0) {errLast.innerHTML = "Enter your last name"};
+    if (firstName.length === 0) errFirst.innerHTML = "Enter your first name";
+    if (lastName.length === 0) errLast.innerHTML = "Enter your last name";
 
     if (email.length === 0) {
         errEmail.innerHTML = "Enter an email";
-    } else if (!email.includes('@') || !email.includes(".")) {
-            errEmail.innerHTML = "Enter a valid email (must contain @ and .)";
+    } else if (!email.includes("@") || !email.includes(".")) {
+        errEmail.innerHTML = "Enter a valid email (must contain @ and .)";
     }
 
     if (password.length <= 7) {
-        errPass.innerHTML = "From 8 to 25 characters"
-    }else if (password.length === 0) {
-        errPass.innerHTML = "Enter a password"
+        errPass.innerHTML = "From 8 to 25 characters";
+    } else if (password.length === 0) {
+        errPass.innerHTML = "Enter a password";
     }
-    if (confirm.length === 0 ) {
-        errConf.innerHTML = "Config a password"
+
+    if (confirm.length === 0) {
+        errConf.innerHTML = "Config a password";
     } else if (confirm !== password && confirm.length <= 8) {
-        errConf.innerHTML = "The password must match"
+        errConf.innerHTML = "The password must match";
     }
 
     if (firstName.length >= 2 && lastName.length >= 2 && email.length >= 8 && password.length >= 8 && confirm.length >= 8 && password === confirm) {
@@ -138,12 +137,16 @@ document.getElementById("newUser").onclick = function() {
         first = firstName;
         last = lastName;
 
+        const randomBalance = balanceList[Math.floor(Math.random() * balanceList.length)];
+        userBalance = randomBalance;
+
         document.getElementById("first").textContent = firstName[0].toUpperCase();
         document.getElementById("last").textContent = lastName[0].toUpperCase();
-        document.getElementById("userProf").style.display = "flex"
+        document.getElementById("balance").textContent = "$" + userBalance;
+
+        document.getElementById("userProf").style.display = "flex";
         document.getElementById("joinMenu").style.top = "-1500px";
         document.getElementById("joinBtn").style.display = "none";
-        console.log(regEmail, pass, first, last)
     }
 };
 

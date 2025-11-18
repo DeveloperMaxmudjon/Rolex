@@ -161,7 +161,7 @@ body {
   gap: 10px;
   align-items: center;
 }
-.container .headerContainer header .mobile-header .userProf div {
+.container .headerContainer header .mobile-header .userProf > div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -170,10 +170,15 @@ body {
   color: var(--white);
   border-radius: 50%;
 }
-.container .headerContainer header .mobile-header .userProf span {
+.container .headerContainer header .mobile-header .userProf > span {
   font-size: 18px;
   font-weight: 700;
   gap: 5px;
+}
+.container .headerContainer header .mobile-header .userProf > span > div #balance {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 .container .headerContainer .social-media {
   grid-column: 1/2;
@@ -1338,7 +1343,7 @@ body {
     display: none;
   }
   .container .headerContainer header .mobile-header {
-    gap: 7px;
+    gap: 15px;
   }
   .container .headerContainer header .mobile-header #navGroup {
     display: inline-block;
@@ -1435,6 +1440,36 @@ body {
     gap: 10px;
   }
   .container footer > span {
+    padding: 20px;
+  }
+  .JoinMenu {
+    padding: 20px;
+  }
+  .JoinMenu h1 {
+    font-size: 28px;
+  }
+  .JoinMenu > span h3 {
+    font-size: 19px;
+  }
+  .JoinMenu > span button {
+    padding: 10px 20px;
+  }
+  .JoinMenu > div {
+    padding: 20px;
+  }
+  .SignInMenu {
+    padding: 20px;
+  }
+  .SignInMenu h1 {
+    font-size: 28px;
+  }
+  .SignInMenu > span h3 {
+    font-size: 19px;
+  }
+  .SignInMenu > span button {
+    padding: 10px 20px;
+  }
+  .SignInMenu > div {
     padding: 20px;
   }
 }
