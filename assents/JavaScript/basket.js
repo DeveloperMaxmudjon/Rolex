@@ -2,6 +2,16 @@ document.getElementById("basket").onclick = function() {
     document.getElementById("basketMenu").classList.add("showMenuFlex")
 }
 
+document.addEventListener("keydown", function (e) {
+    if (e.key === "b") {
+        document.getElementById("basketMenu").classList.toggle("showMenuFlex");
+    }
+
+    if (e.key === "Escape") {
+        document.getElementById("basketMenu").classList.remove("showMenuFlex");
+    }
+});
+
 document.getElementById("removeBasketMenu").onclick = function() {
     document.getElementById("basketMenu").classList.remove("showMenuFlex")
 }

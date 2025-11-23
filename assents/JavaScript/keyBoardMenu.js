@@ -6,7 +6,7 @@ document.addEventListener("keydown", (e) => {
     keyMenu.classList.add("showMenuFlex");
   }
 
-  if (e.key === "d") {
+  if (e.key === "r") {
     productMenu.classList.toggle("showMenuFlex");
   }
 

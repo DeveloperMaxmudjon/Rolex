@@ -32,7 +32,7 @@ setTimeout(function() {
   })
 
 
-setTimeout(AdBanner, 2000);
+setTimeout(AdBanner, 7000);
 
 function AdBanner() {
   const ad = document.getElementById("adBanner");
