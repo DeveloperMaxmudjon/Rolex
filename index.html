@@ -123,7 +123,7 @@
             </h1>
 
             <div class="featuredProduct">
-                <div>
+                <div id="productCart-1">
                     <img src="./assents/Imgs/Product-1.png" alt="">
                     <h3>JAZZMASTER</h3>
                     <span>
@@ -133,7 +133,7 @@
                         ADD TO CART
                     </button>
                 </div>
-                <div>
+                <div id="productCart-2">
                     <img src="./assents/Imgs/Product-2.png" alt="">
                     <h3>INGERSOLL</h3>
                     <span>
@@ -143,7 +143,7 @@
                         ADD TO CART
                     </button>
                 </div>
-                <div>
+                <div id="productCart-3">
                     <img src="./assents/Imgs/Product-3.png" alt="">
                     <h3>ROSE GOLD</h3>
                     <span>
@@ -173,7 +173,7 @@
         <div class="productsMain" id="productsMain">
             <h1>Products</h1>
             <div class="products">
-                <div>
+                <div id="productCart-4">
                     <div>
                         <img src="./assents/Imgs/Product-4.png" alt="">
                         <h3>SPIRIT ROSE</h3>
@@ -185,7 +185,7 @@
                         <img src="./assents/Icons/bx-shopping-bag.svg (1).svg" alt="">
                     </button>
                 </div>
-                <div>
+                <div id="productCart-5">
                     <div>
                         <img src="./assents/Imgs/Product-5.png" alt="">
                         <h3>KHAKI PILOT</h3>
@@ -197,7 +197,7 @@
                         <img src="./assents/Icons/bx-shopping-bag.svg (1).svg" alt="">
                     </button>
                 </div>
-                <div>
+                <div id="productCart-6">
                     <div>
                         <img src="./assents/Imgs/Product-6.png" alt="">
                         <h3>JUBILEE BLACK</h3>
@@ -209,7 +209,7 @@
                         <img src="./assents/Icons/bx-shopping-bag.svg (1).svg" alt="">
                     </button>
                 </div>
-                <div>
+                <div id="productCart-7">
                     <div>
                         <img src="./assents/Imgs/Product-7.png" alt="">
                         <h3>FOSIL ME3</h3>
@@ -221,7 +221,7 @@
                         <img src="./assents/Icons/bx-shopping-bag.svg (1).svg" alt="">
                     </button>
                 </div>
-                <div>
+                <div id="productCart-8">
                     <div>
                         <img src="./assents/Imgs/Product-8.png" alt="">
                         <h3>DUCHEN</h3>
@@ -861,6 +861,175 @@
             <button id="joinMenu2">Join Now</button>
         </span>
     </div>
+    <div class="secretMenu" id="keyMenu">
+        <div>
+            <span>
+                <h5>1. Command + M</h5>
+                <p>Hot keyboard</p>
+            </span>
+            <span>
+                <h5>2. P</h5>
+                <p>Add product</p>
+            </span>
+            <span>
+                <h5>3. D</h5>
+                <p>Remove product</p>
+            </span>
+        </div>
+    </div>
+    <div class="productMenu" id="removeProduct">
+        <div class="productMenu-inner">
+            <div class="productMenu-header">
+                <h3>Список продуктов</h3>
+                <button class="close" id="close" type="button">✕</button>
+            </div>
+
+            <p>Нажми Esc, чтобы закрыть это окно.</p>
+
+            <div id="productList">
+                <div class="productRow" id="prodCart-1" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-1.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">JAZZMASTER</p>
+                        <p class="price">$1050</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-1', 'prodCart-1')" class="deleteProductBtn" type="button" data-target="#product-2"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-2" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-2.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">INGERSOLL</p>
+                        <p class="price">$250</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-2', 'prodCart-2')" class="deleteProductBtn" type="button" data-target="#product-3"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-3" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-3.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">ROSE GOLD</p>
+                        <p class="price">$890</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-3', 'prodCart-3')" class="deleteProductBtn" type="button" data-target="#product-4"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-4" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-4.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">SPIRIT ROSE</p>
+                        <p class="price">$1500</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-4', 'prodCart-4')" class="deleteProductBtn" type="button" data-target="#product-5"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-5" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-5.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">KHAKI PILOT</p>
+                        <p class="price">$1350</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-5', 'prodCart-5')" class="deleteProductBtn" type="button" data-target="#product-6"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-6" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-6.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">JUBILEE BLACK</p>
+                        <p class="price">$870</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-6', 'prodCart-6')" class="deleteProductBtn" type="button" data-target="#product-7"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-7" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-7.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">FOSIL ME3</p>
+                        <p class="price">$650</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-7', 'prodCart-7')" class="deleteProductBtn" type="button" data-target="#product-8"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-8" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-8.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">DUCHEN</p>
+                        <p class="price">$950</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productCart-8', 'prodCart-8')" class="deleteProductBtn" type="button" data-target="#product-9"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-9" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-9.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">LONGINES ROSE</p>
+                        <p class="price">$1120</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productOrder-1', 'prodCart-9')" class="deleteProductBtn" type="button" data-target="#product-10"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-10" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-10.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">DREYFUSS GOLD</p>
+                        <p class="price">$750</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productOrder-2', 'prodCart-10')" class="deleteProductBtn" type="button" data-target="#product-11"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-11" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-11.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">JAZZMASTER</p>
+                        <p class="price">$1150</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productOrder-3', 'prodCart-11')" class="deleteProductBtn" type="button" data-target="#product-12"> Удалить</button>
+                    </div>
+                </div>
+                <div class="productRow" id="prodCart-12" draggable="true">
+                    <img class="img123" src="./assents/Imgs/Product-12.png" alt="Product 1">
+                    <div class="productInfo">
+                        <p class="name">PORTUGUESE ROSE</p>
+                        <p class="price">$1590</p>
+                    </div>
+                    <div class="productActions">
+                        <button onclick="removeProduct('productOrder-4', 'prodCart-12')" class="deleteProductBtn" type="button" data-target="#product-13"> Удалить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notif" id="notif">
+        <div id="noteText">
+            <span>Hold Command (⌘) or Windows key (⊞) to open the menu</span>
+        </div>
+    </div>
+    <div class="windowDispalyCard">
+        <span id="windowDispay"></span>
+    </div>
+    <div class="adBanner" id="adBanner">
+        <div>
+            <span>
+                <div>
+                    <button class="close" id="ad-close" type="button">✕</button>
+                </div>
+                <video autoplay muted loop playsinline>
+                    <source src="./assents/videoplayback.mp4" type="video/mp4">
+                </video>
+            </span>
+        </div>
+    </div>
 </body>
 <script src="./assents/JavaScript/dark & light Mode.js"></script>
 <script src="./assents/JavaScript/showMenu.js"></script>
@@ -869,5 +1038,7 @@
 <script src="./assents/JavaScript/productCorusel.js"></script>
 <script src="./assents/JavaScript/joinMenu.js"></script>
 <script src="./assents/JavaScript/loading.js"></script>
+<script src="./assents/JavaScript/keyBoardMenu.js"></script>
+<script src="./assents/JavaScript/dropProduct.js"></script>
 
 </html>

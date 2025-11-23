@@ -92,9 +92,9 @@ const balanceList = [2000, 2500, 3000, 3500];
 let userBalance = 0;
 
 document.getElementById("newUser").onclick = function() {
-    const firstName = document.getElementById("getFirstName").value;
-    const lastName  = document.getElementById("getLastName").value;
-    const email     = document.getElementById("getEmail").value;
+    const firstName = document.getElementById("getFirstName").value.trim();
+    const lastName  = document.getElementById("getLastName").value.trim();
+    const email     = document.getElementById("getEmail").value.trim();
     const password  = document.getElementById("getPassword").value;
     const confirm   = document.getElementById("configPassword").value;
 
@@ -110,28 +110,55 @@ document.getElementById("newUser").onclick = function() {
     errPass.innerHTML = "";
     errConf.innerHTML = "";
 
-    if (firstName.length === 0) errFirst.innerHTML = "Enter your first name";
-    if (lastName.length === 0) errLast.innerHTML = "Enter your last name";
+    // Validation rules
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const minNameLen = 2;
+    const minPasswordLen = 8;
+
+    // Track first invalid field
+    let firstInvalid = null;
+
+    if (firstName.length < minNameLen) {
+        errFirst.innerHTML = `Enter your first name (min ${minNameLen} chars)`;
+        firstInvalid = firstInvalid || document.getElementById("getFirstName");
+    }
+
+    if (lastName.length < minNameLen) {
+        errLast.innerHTML = `Enter your last name (min ${minNameLen} chars)`;
+        firstInvalid = firstInvalid || document.getElementById("getLastName");
+    }
 
     if (email.length === 0) {
         errEmail.innerHTML = "Enter an email";
-    } else if (!email.includes("@") || !email.includes(".")) {
-        errEmail.innerHTML = "Enter a valid email (must contain @ and .)";
+        firstInvalid = firstInvalid || document.getElementById("getEmail");
+    } else if (!emailRe.test(email)) {
+        errEmail.innerHTML = "Enter a valid email";
+        firstInvalid = firstInvalid || document.getElementById("getEmail");
     }
 
-    if (password.length <= 7) {
-        errPass.innerHTML = "From 8 to 25 characters";
-    } else if (password.length === 0) {
+    if (password.length === 0) {
         errPass.innerHTML = "Enter a password";
+        firstInvalid = firstInvalid || document.getElementById("getPassword");
+    } else if (password.length < minPasswordLen || password.length > 25) {
+        errPass.innerHTML = `Password must be ${minPasswordLen}-25 characters`;
+        firstInvalid = firstInvalid || document.getElementById("getPassword");
     }
 
     if (confirm.length === 0) {
-        errConf.innerHTML = "Config a password";
-    } else if (confirm !== password && confirm.length <= 8) {
-        errConf.innerHTML = "The password must match";
+        errConf.innerHTML = "Confirm the password";
+        firstInvalid = firstInvalid || document.getElementById("configPassword");
+    } else if (confirm !== password) {
+        errConf.innerHTML = "Passwords do not match";
+        firstInvalid = firstInvalid || document.getElementById("configPassword");
     }
 
-    if (firstName.length >= 2 && lastName.length >= 2 && email.length >= 8 && password.length >= 8 && confirm.length >= 8 && password === confirm) {
+    // If any validation failed, focus first invalid and stop
+    if (firstInvalid) {
+        firstInvalid.focus();
+        return;
+    }
+
+    if (firstName.length >= minNameLen && lastName.length >= minNameLen && emailRe.test(email) && password.length >= minPasswordLen && confirm === password) {
         regEmail = email;
         pass = password;
         first = firstName;
@@ -147,6 +174,7 @@ document.getElementById("newUser").onclick = function() {
         document.getElementById("userProf").style.display = "flex";
         document.getElementById("joinMenu").style.top = "-1500px";
         document.getElementById("joinBtn").style.display = "none";
+        alert("аккаунт создан");
     }
 };
 
